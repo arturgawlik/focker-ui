@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +9,13 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 })
 export class AppComponent {
   faGithub = faGithub;
+  faBars = faBars;
+
+  menuVisible = false;
+
+  toogleNav() {
+    this.menuVisible = !this.menuVisible;
+  }
+
 }
 

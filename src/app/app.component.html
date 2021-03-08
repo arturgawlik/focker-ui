@@ -1,54 +1,63 @@
 <div class="h-screen flex flex-col">
-  <div class="border-b-2">
-    <nav class="mx-auto p-2 flex items-center flex-grow-0 max-w-screen-2xl">
-      <a
-        class="m-2 underline antialiased text-4xl tracking-widest  p-1 "
-        routerLink="/"
-      >
-        focker
-      </a>
-      <a
-        class="m-2 rounded-md ml-auto border border-black p-2 bg-green-200 custom-shadow hover:bg-green-300 active:bg-green-400"
-        routerLink="/register-new-account"
-        >Register new account</a
-      >
-      <a
-        class="m-2 rounded-md border border-black p-2 custom-shadow hover:bg-gray-100 active:bg-white"
-        routerLink="/sign-in"
-        >Sign in</a
-      >
-      <a
-        class="m-2 p-2 text-gray-400 hover:text-gray-800"
-        target="_blank"
-        href="https://github.com/arturgawlik"
-        ><fa-icon [icon]="faGithub" size="lg"></fa-icon>
-      </a>
-    </nav>
-  </div>
-
-  <div class="bg bg-gray-100 flex-grow flex ">
-    <div class="max-w-screen-2xl flex flex-col flex-grow mx-auto">
-      <main class="flex flex-col my-auto mx-5">
-        <div class="bg-purple-300 rounded-lg p-4">
-          <p class="text-4xl">What is focker?</p>
-          <p class="mt-3">
-            Focker is a platform that will help you manage processes on your machine. It's a very primitive version of docker - without any process isolation.
-          </p>
+<nav class="border-b-2">
+  <div class="max-w-7xl mx-auto">
+    <div class="relative flex items-center justify-between h-16">
+      <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+        <button (click)="toogleNav()" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+          <svg [ngClass]="menuVisible ? 'hidden' : ''" class="block h-6 w-6 select-none" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg [ngClass]="menuVisible ? 'active' : ''" class="hidden h-6 w-6 select-none" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+        <div class="flex-shrink-0 flex items-center">
+          <a class="m-2 underline antialiased text-4xl tracking-widest"routerLink="/">focker</a>
         </div>
-        <div class="bg-yellow-200 rounded-lg p-4 mt-10">
-          <p class="text-4xl">How make it work?</p>
-          <ul class="list-disc pl-5 mt-3">
-            <li class="m-2"><a class="rounded-md border border-black p-1 bg-gray-100 cursor-pointer">download</a> and install desktop client.</li>
-            <li class="m-2">
-              <a class="rounded-md border border-black p-1 bg-gray-100 cursor-pointer">login</a> to platform panel (or <a class="rounded-md border border-black p-1 bg-gray-100 cursor-pointer">register a new account</a> - if you didn't do it yet).
-            </li>
-            <li class="m-2">configure application instance through panel or CLI.</li>
-          </ul>
+        <div class="hidden sm:block ml-auto">
+          <div class="flex space-x-4">
+            <a class="m-2 rounded-md border border-black p-2 bg-green-200 custom-shadow hover:bg-green-300 active:bg-green-400" routerLink="/register-new-account">Register new account</a>
+            <a class="m-2 rounded-md border border-black p-2 custom-shadow hover:bg-gray-100 active:bg-white"routerLink="/sign-in">Sign in</a>
+            <a class="m-2 p-2 text-gray-400 hover:text-gray-800" target="_blank" href="https://github.com/arturgawlik"><fa-icon [icon]="faGithub" size="lg"></fa-icon></a>
+          </div>
         </div>
-
-      </main>
-
-      <footer class="text-center m-5 inset-x-0 bottom-0">focker</footer>
+      </div>
     </div>
   </div>
+  <!-- Mobile menu, show/hide based on menu state. -->
+  <div class="sm:hidden" id="mobile-menu" [ngClass]="menuVisible ? '' : 'hidden'">
+    <div class="px-2 pt-2 pb-3 space-y-1">
+      <a href="#" class="bg-green-200 hover:bg-green-300 active:bg-green-400 block px-3 py-2 rounded-md text-base font-medium text-center">Register new account</a>
+      <a href="#" class=" block px-3 py-2 rounded-md text-base font-medium text-center">Sign in</a>
+      <a href="#" class="text-gray-400 hover:text-gray-800 block px-3 py-2 rounded-md text-base font-medium text-center"><fa-icon [icon]="faGithub" size="lg"></fa-icon></a>
+    </div>
+  </div>
+</nav>
+
+
+<div class="bg bg-gray-100 flex-grow flex ">
+  <div class="max-w-7xl mx-auto flex flex-col flex-grow">
+    <main class="flex flex-col my-auto mx-5 py-3">
+      <div class="bg-purple-300 rounded-lg p-4">
+        <p class="text-4xl">What is focker?</p>
+        <p class="mt-3">
+          Focker is a platform that will help you manage processes on your machine. It's a very primitive version of docker - without any process isolation.
+        </p>
+      </div>
+      <div class="bg-yellow-200 rounded-lg p-4 mt-10">
+        <p class="text-4xl">How make it work?</p>
+        <ul class="list-disc pl-5 mt-3 leading-loose">
+          <li class="m-2"><a class="rounded-md border border-black p-1 bg-gray-100 cursor-pointer">download</a> and install desktop client.</li>
+          <li class="m-2">
+            <a class="rounded-md border border-black p-1 bg-gray-100 cursor-pointer">login</a> to platform panel (or <a class="rounded-md border border-black p-1 bg-gray-100 cursor-pointer whitespace-nowrap">register a new account</a> - if you didn't do it yet).
+          </li>
+          <li class="m-2">configure application instance through panel or CLI.</li>
+        </ul>
+      </div>
+    </main>
+    <footer class="text-center m-5 inset-x-0 bottom-0">focker</footer>
+  </div>
+</div>
 </div>

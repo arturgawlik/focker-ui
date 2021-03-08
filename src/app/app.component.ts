@@ -9,3 +9,4 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 export class AppComponent {
   faGithub = faGithub;
 }
+
